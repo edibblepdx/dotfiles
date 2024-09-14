@@ -1,0 +1,5 @@
+alias ls='ls --color=auto'
+alias ll='ls -lrta'
+alias la='ls -a'
+alias psu='ssh edibble@babbage.cs.pdx.edu'
+alias yazi='~/Clones/yazi/target/release/yazi'

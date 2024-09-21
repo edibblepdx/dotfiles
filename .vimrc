@@ -41,6 +41,7 @@ set laststatus=2
 call plug#begin()
 
 " List your plugins here
+Plug 'SirVer/ultisnips'
 Plug 'lervag/vimtex'
 Plug 'itchyny/lightline.vim'
 " Colorschemes
@@ -49,11 +50,15 @@ Plug 'rafi/awesome-vim-colorschemes'    " Collection
 
 call plug#end()
 
+let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
+let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
+let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+let g:vimtex_view_method = 'zathura'
+
 " Colorscheme Settings
 set background=dark
 colorscheme gruvbox
 let g:lightline = {'colorscheme': 'gruvbox'}
-let g:vimtex_view_method = 'zathura'
 
 " visual column for how long a singlel ine should be
 " set colorcolumn=81

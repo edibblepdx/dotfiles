@@ -25,5 +25,10 @@ fi
 unset rc
 . "$HOME/.cargo/env"
 
+# asdf vm
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
 # My file of aliases
 source ~/.aliases
+

@@ -8,26 +8,16 @@ set cursorline
 set showcmd
 set hlsearch
 " set showmode
-set noshowmode
-
-filetype plugin on
+set noshowmode " handled by lightline
 
 " enable syntax highlighting
 syntax on
 
-" syntax highlighting for .tpp files
-au Bufread,BufNewFile *.tpp set filetype=cpp
-
-" tab auto completion for vim commands
-set wildmenu
-" set wildmode=longest:full,full
-set wildmode=list:longest
-
-" status bar
-set laststatus=2
-
-" visual column for how long a singlel ine should be
-" set colorcolumn=81
+" filetype plugin
+filetype on
+filetype plugin on
+filetype indent on
+au Bufread,BufNewFile *.tpp set filetype=cpp " syntax for .tpp files as .cpp
 
 " set tabs to 4 spaces
 set tabstop=4
@@ -39,6 +29,14 @@ set softtabstop=4
 set visualbell
 set t_vb=
 set belloff=all
+
+" tab auto completion for vim commands
+set wildmenu
+" set wildmode=longest:full,full
+set wildmode=list:longest
+
+" status bar
+set laststatus=2
 
 call plug#begin()
 
@@ -55,8 +53,10 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 let g:lightline = {'colorscheme': 'gruvbox'}
-
 let g:vimtex_view_method = 'zathura'
+
+" visual column for how long a singlel ine should be
+" set colorcolumn=81
 
 " transparent
 " hi Normal guibg=NONE ctermbg=NONE

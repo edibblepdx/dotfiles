@@ -9,6 +9,7 @@ set showcmd
 set hlsearch
 " set showmode
 set noshowmode " handled by lightline
+set scrolloff=2
 
 " enable syntax highlighting
 syntax on

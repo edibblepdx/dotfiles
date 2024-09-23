@@ -7,9 +7,10 @@ set wrap
 set cursorline
 set showcmd
 set hlsearch
-" set showmode
+"set showmode
 set noshowmode " handled by lightline
 set scrolloff=2
+set spell spelllang=en_us
 
 " enable syntax highlighting
 syntax on
@@ -51,17 +52,26 @@ Plug 'rafi/awesome-vim-colorschemes'    " Collection
 
 call plug#end()
 
+" UltiSnips
 let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
 let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips', $HOME.'/.config/nvim/UltiSnips'] 
+
+" Vimtex
 let g:vimtex_view_method = 'zathura'
 
 " Colorscheme Settings
 set background=dark
-colorscheme gruvbox
-let g:lightline = {'colorscheme': 'gruvbox'}
+colorscheme catppuccin_mocha
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
-" visual column for how long a singlel ine should be
+" Change hl-SpellBad to underline
+hi clear SpellBad
+hi SpellBad cterm=underline
+hi SpellBad gui=undercurl
+
+" visual column for how long a single line should be
 " set colorcolumn=81
 
 " transparent

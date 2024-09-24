@@ -56,15 +56,15 @@ call plug#end()
 let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
 let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
 let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips', $HOME.'/.config/nvim/UltiSnips'] 
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips'] 
 
 " Vimtex
 let g:vimtex_view_method = 'zathura'
 
 " Colorscheme Settings
 set background=dark
-colorscheme catppuccin_mocha
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+colorscheme gruvbox
+let g:lightline = {'colorscheme': 'gruvbox'}
 
 " Change hl-SpellBad to underline
 hi clear SpellBad

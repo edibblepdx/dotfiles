@@ -1,0 +1,217 @@
+# ----------------------------- #
+#	GLOBAL
+# ----------------------------- #
+global !p
+def create_matrix(snip):
+	s = snip.buffer[snip.line].strip()	# snippet
+	t = s.split('mt')[0] + 'matrix'		# matrix type
+
+	rows = s.split('.')[0]
+	cols = s.split('.')[1]
+
+	int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+	rows = int_val(rows)
+	cols = int_val(cols)
+
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+	snip.buffer[snip.line] = ''
+
+	mt = '\\begin{' + t + '}\n'
+	for i in range(rows):
+		mt += old_spacing + '\t' 
+		mt += ' & '.join(f"${i * cols + j + 1}" for j in range(cols))
+		mt += old_spacing + " \\\\\\\n"
+
+	mt += '\\end{' + t + '}\n$0'
+	snip.expand_anon(mt)
+
+def create_table(snip):
+	rows = snip.buffer[snip.line].split('.')[0]
+	cols = snip.buffer[snip.line].split('.')[1]
+	int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+	rows = int_val(rows)
+	cols = int_val(cols)
+	offset = cols + 1
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+	snip.buffer[snip.line] = ''
+	final_str = old_spacing + "\\begin{tabular}{|" + "|".join(['$' + str(i + 1) for i in range(cols)]) + "|}\n"
+	for i in range(rows):
+		final_str += old_spacing + '\t'
+		final_str += " & ".join(['$' + str(i * cols + j + offset) for j in range(cols)])
+		final_str += " \\\\\\\n"
+	final_str += old_spacing + "\\end{tabular}\n$0"
+	snip.expand_anon(final_str)
+
+def add_row(snip):
+	row_len = int(''.join(s for s in snip.buffer[snip.line] if s.isdigit()))
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+	snip.buffer[snip.line] = ''
+	final_str = old_spacing + '\t'
+	final_str += " & ".join(['$' + str(j + 1) for j in range(row_len)])
+	final_str += " \\\\\\"
+	snip.expand_anon(final_str)
+endglobal
+# ----------------------------- #
+#	USING GLOBAL
+# ----------------------------- #
+
+# Matrix snippet
+pre_expand "create_matrix(snip)"
+snippet "([pbBvV])?mt(\d+).(\d+)" "Variable size matrix in LaTeX" br
+endsnippet
+
+# Table snippet
+pre_expand "create_table(snip)"
+snippet "tbl(\d+).(\d+)" "Generate table of *width* by *height*" br
+endsnippet
+
+# Add table row
+pre_expand "add_row(snip)"
+snippet "tr(\d+)" "Add table row of dimension ..." r
+endsnippet
+
+# ----------------------------- #
+#	GENERIC
+# ----------------------------- #
+
+# generic LaTeX environments
+snippet env "New LaTeX environment" b
+\begin{$1}
+	$2
+\end{$1}
+$0
+endsnippet
+
+# Snippet for inserting named links with href
+snippet hr "The hyperref package's \href{}{} command (for url links)"
+\href{${1:url}}{${2:display name}}$0
+endsnippet
+
+# inline math, preventing inline math expansion in words containing "mm"
+# could also use w for word boundary
+snippet "(^|[^a-zA-Z])mm" "Inline LaTeX math" rA
+`!p snip.rv = match.group(1)`\$ ${1:${VISUAL:}} \$$0
+endsnippet
+
+# display math
+snippet dm "Display LaTeX math" wA
+\[
+	${1:${VISUAL:}}
+\]
+$0
+endsnippet
+
+# figures
+snippet fig "The LaTeX \begin{figure}[htb!] command" b
+\begin{figure}[htb]!
+	\centering
+	\includegraphics[width=\linewidth]{${1:filename}}
+	\caption{${2:caption}}
+	\label{fig:${3:label}}
+\end{figure}
+$0
+endsnippet
+
+# lemma
+snippet lemma "Lemma" b
+\begin{lemma}
+	${1:${VISUAL}}
+\end{lemma}
+$0
+endsnippet
+
+# proposition
+snippet prop "Proposition" b
+\begin{prop}[$1]
+	${2:${VISUAL}}
+\end{prop}
+$0
+endsnippet
+
+# theorem
+snippet thrm "Theorem" b
+\begin{theorem}[$1]
+	${2:${VISUAL}}
+\end{theorem}
+$0
+endsnippet
+
+# postulate
+snippet post "postulate" b
+\begin{postulate}[$1]
+	${2:${VISUAL}}
+\end{postulate}
+$0
+endsnippet
+
+# proof
+snippet prf "Proof" b
+\begin{myproof}[$1]
+	${2:${VISUAL}}
+\end{myproof}
+$0
+endsnippet
+
+# definition
+snippet def "Definition" b
+\begin{definition}[$1]
+	${2:${VISUAL}}
+\end{definition}
+$0
+endsnippet
+
+# note
+snippet nte "Note" b
+\begin{note}[$1]
+	${2:${VISUAL}}
+\end{note}
+$0
+endsnippet
+
+# problem
+snippet prob "Problem" b
+\begin{problem}[$1]
+	${2:${VISUAL}}
+\end{problem}
+$0
+endsnippet
+
+# corollary
+snippet corl "Corollary" b
+\begin{corollary}[$1]
+	${2:${VISUAL}}
+\end{corollary}
+$0
+endsnippet
+
+# example
+snippet example "Example" b
+\begin{example}[$1]
+	${2:${VISUAL}}
+\end{example}
+$0
+endsnippet
+
+# notation
+snippet notion "Notation" b
+\begin{notation}[$1]
+	${2:${VISUAL}}
+\end{notation}
+$0
+endsnippet
+
+# conclusion
+snippet conc "Conclusion" b
+\begin{conclusion}[$1]
+	${2:${VISUAL}}
+\end{conclusion}
+$0
+endsnippet
+
+# abstract
+snippet abs "abstract environment" b
+\begin{abstract}
+	${1:${VISUAL}}
+\end{abstract}
+$0
+endsnippet

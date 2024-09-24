@@ -69,7 +69,6 @@ let g:lightline = {'colorscheme': 'gruvbox'}
 " Change hl-SpellBad to underline
 hi clear SpellBad
 hi SpellBad cterm=underline
-hi SpellBad gui=undercurl
 
 " visual column for how long a single line should be
 " set colorcolumn=81

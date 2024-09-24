@@ -1,3 +1,4 @@
+set guifont=JetBrainsMonoNL\ Nerd\ Font\ Semi-Bold\ 16
 set guioptions -=m " remove menubar
 set guioptions -=T " remove toolbar
 set guioptions -=r " remove right scrollbar

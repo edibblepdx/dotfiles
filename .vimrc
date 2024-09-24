@@ -11,6 +11,7 @@ set hlsearch
 set noshowmode " handled by lightline
 set scrolloff=2
 set spell spelllang=en_us
+set encoding=utf-8
 
 " enable syntax highlighting
 syntax on
@@ -60,6 +61,7 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 
 " Vimtex
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 " Colorscheme Settings
 set background=dark

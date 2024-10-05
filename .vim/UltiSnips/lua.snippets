@@ -1,0 +1,17 @@
+# Create a function
+snippet fun "create function lua" b
+${1:local }function ${2:name} (${3:params})
+	$0
+end
+endsnippet
+
+# Comment block
+snippet cc "comment block" 
+--[$1[
+${2:${VISUAL:}}
+]$1]
+$0
+endsnippet
+
+
+

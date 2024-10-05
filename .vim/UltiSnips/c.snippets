@@ -1,0 +1,40 @@
+snippet sin "system include" b
+#include <$1>
+$0
+endsnippet
+
+snippet uin "user include" b
+#include "$1"
+$0
+endsnippet
+
+snippet tf "defien TRUE and FALSE in c" b
+#ifndef TRUE
+# define TRUE 1
+#endif // TRUE
+#ifndef FALSE
+# define FALSE 0
+#endif // FALSE
+endsnippet
+
+snippet getopt "getopt c" b
+{
+	int opt = -1;
+	while ((opt = getopt(argc, argv, OPTIONS)) != -1) {
+		switch (opt) {
+			case ${1:option}:
+			// ${2:description}
+				${3:action}
+				break;
+			case 'h':
+			// Output some helpful text about command line options.
+				print_help(argv[0]);
+				exit(EXIT_FAILURE);
+				break;
+			default:
+				break;
+		} // end switch
+	} // end while
+}
+endsnippet
+

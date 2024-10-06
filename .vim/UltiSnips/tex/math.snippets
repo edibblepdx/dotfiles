@@ -10,12 +10,6 @@ endglobal
 # 'context "math()"' above any snippets you want to expand only in math mode
 # ----------------------------- #
 
-# Auto parens for functions in math mode
-context "math()"
-snippet "([a-zA-Z])\(" "Auto parens for functions in math mode" rA
-`!p snip.rv = match.group(1)`($1)$0
-endsnippet
-
 # Snippet for fractions, preventing fraction expansion in words containing "ff"
 context "math()"
 snippet "(^|[^a-zA-Z])ff" "\frac{}{}" rA

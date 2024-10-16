@@ -16,13 +16,13 @@ def create_matrix(snip):
 	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
 	snip.buffer[snip.line] = ''
 
-	mt = '\\begin{' + t + '}\n'
+	mt = '$\\begin{' + t + '}\n'
 	for i in range(rows):
 		mt += old_spacing + '\t' 
 		mt += ' & '.join(f"${i * cols + j + 1}" for j in range(cols))
 		mt += old_spacing + " \\\\\\\n"
 
-	mt += '\\end{' + t + '}\n$0'
+	mt += '\\end{' + t + '}$\n$0'
 	snip.expand_anon(mt)
 
 def create_table(snip):
@@ -216,15 +216,23 @@ snippet abs "abstract environment" b
 $0
 endsnippet
 
+# enumeration item with bold
 snippet it "enum item" b
-\item \textbf{$1} $2
+\item \textbf{${1:${VISUAL:}}} $2
 	$0
 endsnippet
 
+# minipage
 snippet mini "minipage" b
 \begin{minipage}{${1:size}\textwidth}
 	${0:${VISUAL:}}
 \end{minipage}%
 endsnippet
 
+# block comment
+snippet cc "psuedo block comment" b
+\iffalse
+${1:${VISUAL:}} 
+\fi
+endsnippet
 

@@ -24,13 +24,13 @@ endsnippet
 
 # Easily insert Subscript in math mode
 context "math()"
-snippet "([\w])_" "_{} Subscript in math mode" rA
+snippet "(.)_" "_{} Subscript in math mode" rA
 `!p snip.rv = match.group(1)`_{${1:${VISUAL:}}}$0
 endsnippet
 
 # Easily insert Superscript in math mode
 context "math()"
-snippet "([\w])\^" "^{} Superscript in math mode" rA
+snippet "(.)\^" "^{} Superscript in math mode" rA
 `!p snip.rv = match.group(1)`^{${1:${VISUAL:}}}$0
 endsnippet
 
@@ -43,4 +43,10 @@ endsnippet
 # Snippet for differentials
 snippet "([^a-zA-Z0-9])df" "\diff" rA
 `!p snip.rv = match.group(1)`\diff
+endsnippet
+
+# Snippet for binom
+context "math()"
+snippet "(^|[^a-zA-Z])bb" "\frac{}{}" rA
+`!p snip.rv = match.group(1)`\binom{${1:${VISUAL:}}}{$2}$0
 endsnippet

@@ -17,6 +17,14 @@ snippet tf "defien TRUE and FALSE in c" b
 #endif // FALSE
 endsnippet
 
+snippet main "main function" b
+int main(int argc, char *argv[])
+{
+	$0
+	return 0;
+}
+endsnippet
+
 snippet getopt "getopt c" b
 {
 	int opt = -1;
@@ -38,3 +46,8 @@ snippet getopt "getopt c" b
 }
 endsnippet
 
+snippet struct "structure" b
+struct ${1:name} {
+	$0
+}$2;
+endsnippet

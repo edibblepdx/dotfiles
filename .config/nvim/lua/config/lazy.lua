@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -15,16 +15,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
+    { "folke/tokyonight.nvim", config = function () vim.cmd.colorscheme "tokyonight" end },
+    --{ "sainnhe/gruvbox-material", config = function() vim.cmd.colorscheme "gruvbox-material" end },
+    --{ "rebelot/kanagawa.nvim", config = function() vim.cmd.colorscheme "kanagawa" end },
+    --{ "navarasu/onedark.nvim", config = function() vim.cmd.colorscheme "onedark" end },
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

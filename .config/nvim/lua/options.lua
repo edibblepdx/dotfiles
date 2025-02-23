@@ -54,6 +54,9 @@ vim.opt.cursorline = true
 -- Scroll line padding
 vim.opt.scrolloff = 2
 
+-- Spell check
+vim.opt.spell = true
+
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.ruler = true

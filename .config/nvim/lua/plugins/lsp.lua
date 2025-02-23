@@ -20,6 +20,7 @@ return {
       require 'lspconfig'.clangd.setup {}
       require 'lspconfig'.pylsp.setup {}
       require 'lspconfig'.rust_analyzer.setup {}
+      require 'lspconfig'.ts_ls.setup {}
     end,
   }
 }

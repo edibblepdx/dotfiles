@@ -41,6 +41,14 @@ set wildmode=list:longest
 " status bar
 set laststatus=2
 
+" autocommands
+" ------------
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
 call plug#begin()
 
 " List your plugins here

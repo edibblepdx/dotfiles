@@ -29,11 +29,23 @@ unset rc
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 
-# My file of aliases
-source ~/.aliases
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "/home/dibble/.deno/env"
+
+# Playdate
+export PLAYDATE_SDK_PATH="$HOME/playdate/PlaydateSDK-2.6.2"
+export PATH="$PATH:/$PLAYDATE_SDK_PATH/bin"
+
+# Golang
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+# My file of aliases
+source ~/.aliases

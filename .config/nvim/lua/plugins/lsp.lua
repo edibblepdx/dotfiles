@@ -15,13 +15,15 @@ return {
       },
     },
     config = function()
-      require 'lspconfig'.lua_ls.setup {}
-      require 'lspconfig'.bashls.setup {}
-      require 'lspconfig'.clangd.setup {}
-      require 'lspconfig'.pylsp.setup {}
-      require 'lspconfig'.rust_analyzer.setup {}
-      require 'lspconfig'.ts_ls.setup {}
-      require 'lspconfig'.gopls.setup {}
+      vim.lsp.enable('lua_ls')        -- Lua
+      vim.lsp.enable('bashls')        -- Bash
+      vim.lsp.enable('clangd')        -- C/C++
+      vim.lsp.enable('pylsp')         -- Python
+      vim.lsp.enable('rust_analyzer') -- Rust
+      vim.lsp.enable('gopls')         -- Go
+      vim.lsp.enable('hls')           -- Haskell
+      --vim.lsp.enable('eslint')        -- JavaScript
+      --vim.lsp.enable('typescript-language-server')        -- JavaScript
     end,
   }
 }

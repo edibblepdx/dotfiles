@@ -1,5 +1,8 @@
 -- [[ options ]]
 
+-- colorcolumn
+vim.opt.colorcolumn = "81"
+
 -- show line number
 vim.opt.number = true
 

@@ -1,5 +1,7 @@
 # .bashrc
 
+echo -e "\033[1;36m \n Good Morning ♥ \n"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -29,10 +31,13 @@ unset rc
 . "$HOME/.asdf/asdf.sh"
 . "$HOME/.asdf/completions/asdf.bash"
 
+# Nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "/home/dibble/.deno/env"
+
+# Deno
+[ -f "$HOME/.deno/env" ] && . "$HOME/.deno/env"
 
 # Playdate
 export PLAYDATE_SDK_PATH="$HOME/playdate/PlaydateSDK-2.6.2"
@@ -47,5 +52,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 
+# Haskell
+[ -f "/home/dibble/.ghcup/env" ] && . "/home/dibble/.ghcup/env"
+
 # My file of aliases
-source ~/.aliases
+[ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
+
+# Default editor
+export EDITOR="/usr/bin/nvim"

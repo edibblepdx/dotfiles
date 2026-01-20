@@ -20,10 +20,11 @@ return {
       vim.lsp.enable('clangd')        -- C/C++
       vim.lsp.enable('pylsp')         -- Python
       vim.lsp.enable('rust_analyzer') -- Rust
+      vim.lsp.enable('wgsl_analyzer') -- WGSL
+      vim.lsp.enable('glsl_analyzer') -- GLSL
       vim.lsp.enable('gopls')         -- Go
       vim.lsp.enable('hls')           -- Haskell
-      --vim.lsp.enable('eslint')        -- JavaScript
-      --vim.lsp.enable('typescript-language-server')        -- JavaScript
+      vim.lsp.enable('gdscript')      -- GDScript
     end,
   }
 }

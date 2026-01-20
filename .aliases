@@ -12,3 +12,11 @@ alias vall='valgrind --leak-check=full \
                      --track-origins=yes \
                      --verbose \
                      --log-file=valgrind-out.txt'
+
+# useful with --stat or --patch or -p
+alias gl='git log --oneline --decorate --graph --all'
+alias gla='git log --pretty=format:"%h - %an, %ar : %s" --graph --all'
+alias gbv='git fetch --all; git branch -vv'
+
+# terraform
+alias tf='terraform'

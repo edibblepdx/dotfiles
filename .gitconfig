@@ -2,3 +2,19 @@
 [user]
 	name = ethan dibble
 	email = edibble@pdx.edu
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[diff]
+	tool = nvimdiff
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+[merge]
+	tool = nvimdiff
+[credential]
+	helper = cache

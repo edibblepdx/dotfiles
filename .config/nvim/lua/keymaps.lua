@@ -19,7 +19,7 @@ vim.keymap.set('n', '<leader>[', '<C-w>v', { desc = 'Split vertical' })
 vim.keymap.set('n', '<leader>]', '<C-w>s', { desc = 'Split horizonatl' })
 
 -- Keybinds for tabs
-vim.keymap.set('n', '<leader>0', '<cmd>tabe %:h<CR>', { desc = 'Open current file directory in new tab' })
+vim.keymap.set('n', '<leader>0', '<cmd>tabe %:p:h<CR>', { desc = 'Open current file directory in new tab' })
 vim.keymap.set('n', '<leader>-', 'gt', { desc = 'Next tab' })
 vim.keymap.set('n', '<leader>=', 'gT', { desc = 'Previous tab' })
 

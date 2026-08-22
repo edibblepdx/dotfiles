@@ -20,3 +20,6 @@ alias gbv='git fetch --all; git branch -vv'
 
 # terraform
 alias tf='terraform'
+
+# django
+alias dj='python manage.py'

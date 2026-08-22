@@ -55,8 +55,15 @@ eval "$(pyenv init - bash)"
 # Haskell
 [ -f "/home/dibble/.ghcup/env" ] && . "/home/dibble/.ghcup/env"
 
+# ESP32 Xentesa toolchain
+[ -f "$HOME/export-esp.sh" ] && . "$HOME/export-esp.sh"
+
+
 # My file of aliases
 [ -f "$HOME/.aliases" ] && . "$HOME/.aliases"
 
 # Default editor
 export EDITOR="/usr/bin/nvim"
+
+# Starship
+eval "$(starship init bash)"
